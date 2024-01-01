@@ -1,5 +1,6 @@
 from DB_access.connection import connect, disconnect
-from DB_access.modify_db import create_new_table, insert_into_table, select_from_table
+from DB_access.modify_db import create_new_table, insert_into_table
+from DB_access.select import select_from_table
 
 
 def create_books_table():
@@ -42,6 +43,5 @@ def create_db():
 
 
 if __name__ == "__main__":
-    #create_db()
+    create_db()
     select_from_table("books", 1)
-

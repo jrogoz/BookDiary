@@ -11,7 +11,7 @@ class TestConfig(unittest.TestCase):
             'user': 'postgres',
             'password': '1234'
         }
-        db = config(filename='test_database.ini')
+        db = config(filename='database.ini')
         self.assertDictEqual(expected_db, db)
 
     def test_config_incorrect_filename(self):

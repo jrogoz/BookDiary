@@ -1,9 +1,9 @@
 from DB_access.modify_db import exec_query
 
 
-def select_from_table(table_name, num=1, condition: str = None, order_by: str = None, group_by: str = None, *args):
-    if args:
-        cols = ", ".join([item for item in args])
+def select_from_table(table_name, num=1, col_names=None, condition: str = None, order_by: str = None, group_by: str = None):
+    if col_names is not None:
+        cols = ", ".join([item for item in col_names])
     else:
         cols = "*"
 
@@ -19,6 +19,7 @@ def select_from_table(table_name, num=1, condition: str = None, order_by: str = 
 
     if group_by:
         query += " GROUP BY "
+        query += group_by
 
     return exec_query(query, num)
 
