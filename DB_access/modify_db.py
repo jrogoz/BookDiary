@@ -12,6 +12,8 @@ def exec_query(query, select: int = None):
         cur.execute(query)
         if select:
             result = cur.fetchmany(select)
+        else:
+            conn.commit()
 
     except(Exception, psycopg2.DatabaseError) as error:
         print(error)
