@@ -26,3 +26,7 @@ class TestConnection(unittest.TestCase):
     def test_disconnect_conn_and_cursor_are_none(self):
         disconnect(None, None)
         self.assertRaises(psycopg2.DatabaseError)
+
+
+if __name__ == '__main__':
+    unittest.main()
