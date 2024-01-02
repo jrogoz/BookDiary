@@ -47,7 +47,7 @@ class TestSelect(unittest.TestCase):
             self.assertLess(select_result[i][0], select_result[i+1][0])
 
     def test_select_from_table_order_by_id_dsc(self):
-        select_result = select_from_table('books', order_by='book_id asc')
+        select_result = select_from_table('books', order_by='book_id desc')
 
         for i in select_result[:-1]:
             self.assertGreater(select_result[i][0], select_result[i + 1][0])
