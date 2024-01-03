@@ -2,16 +2,20 @@ import psycopg2
 from DB_access.connection import connect, disconnect
 
 
-def exec_query(query, select: int = None):
+def exec_query(query, fetch_num: int = None):
     conn = None
     cur = None
     result = None
+    select = True if 'select' in (query.lower()).split(' ') else False
 
     try:
         conn, cur = connect()
         cur.execute(query)
         if select:
-            result = cur.fetchmany(select)
+            if fetch_num:
+                result = cur.fetchmany(fetch_num)
+            else:
+                result = cur.fetchall()
         else:
             conn.commit()
 
