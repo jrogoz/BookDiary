@@ -35,7 +35,7 @@ def create_new_table(table_name, **kwargs):
 
 def insert_into_table(table_name, **kwargs):
     cols = ", ".join([k for k, _ in kwargs.items()])
-    vals = ", ".join([v for _, v in kwargs.items()])
+    vals = ", ".join([f"'{v}'" for _, v in kwargs.items()])
     query = f"INSERT INTO {table_name} ({cols}) VALUES ({vals});"
     exec_query(query)
 
@@ -43,6 +43,11 @@ def insert_into_table(table_name, **kwargs):
 def update_table(table_name, condition: str = None, **kwargs):
     cols_vals = ", ".join(["{} = {}".format(k, v) for (k, v) in kwargs.items()])
     query = f"UPDATE {table_name} SET {cols_vals} where {condition};"
+    exec_query(query)
+
+
+def delete_from_table(table_name):
+    query = f"DELETE FROM {table_name}"
     exec_query(query)
 
 

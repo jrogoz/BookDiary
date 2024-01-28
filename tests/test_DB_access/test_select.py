@@ -3,6 +3,7 @@ from DB_access.select import select_from_table
 
 
 class TestSelect(unittest.TestCase):
+
     def test_select_one_from_table(self):
         select_results = select_from_table('books', num=1)
         self.assertEqual(1, len(select_results))

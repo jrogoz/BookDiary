@@ -7,7 +7,7 @@ class TestConfig(unittest.TestCase):
         expected_db = {
             'host': 'localhost',
             'port': '5433',
-            'database': 'BookDiaryDB',
+            'database': 'TestBookDiaryDB',
             'user': 'postgres',
             'password': '1234'
         }

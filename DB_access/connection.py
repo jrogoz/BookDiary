@@ -2,12 +2,12 @@ import psycopg2
 from config import config
 
 
-def connect():
+def connect(filename='database.ini'):
     connection = None
     cursor = None
 
     try:
-        params = config()
+        params = config(filename)
         connection = psycopg2.connect(**params)
         cursor = connection.cursor()
 
